@@ -1,10 +1,18 @@
 import { useState } from 'react'
 import SearchEngine from './components/SearchEngine'
+import CountryList from './components/CountryList'
+import CountryDetail from './components/CountryDetail'
+import { useState } from 'react'
 
 function App() {
+
+  const [selectedCountry, setSelectedCountry]=useState(null)
   
   return (
-    <SearchEngine></SearchEngine>
+    <div>
+      <SearchEngine />
+      <CountryDetail country={countrySelected}/>
+    </div>
   )  
  
  
