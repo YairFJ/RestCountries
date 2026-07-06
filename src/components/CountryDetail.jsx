@@ -1,18 +1,21 @@
-const countryDetail = ({country})=>{
+const CountryDetail = ({countryselected})=>{
     return(
         <>
-        <ul>
-            <li>
-                <h1>{country.name}</h1>
-                <p>Capiltal{country.capital}</p>
-                <p>Area{country.area}</p>
-                <p>Lenguage{country.lenguage}</p>
-                <p>Flags{country.flags}</p>
+        <ul>{countryselected.map((country)=>(
+            <li key={country.cca3}>
+                <h1>{country.name.common}</h1>
+                <p> Capital: {country.capital}</p>
+                <p> Área: {country.area}</p>
+                <p> Lenguajes: {Object.values(country.languages).join(", ")}</p>
+                <img
+                    src={country.flags.png}
+                    alt={country.flags.alt}
+                    width="200"    
+                />
             </li>
+        ))}
         </ul>
         </>
-        
-
     )
 }
-export default countryDetail
+export default CountryDetail

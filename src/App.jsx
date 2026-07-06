@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import SearchEngine from './components/SearchEngine'
-import Country from './components/Country'
+import CountryList from './components/CountryList'
 import countryService from './services/contries'
 import contries from './services/contries'
+import CountryDetail from './components/CountryDetail'
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -26,12 +27,11 @@ function App() {
 
   const countryToShow = countries.filter((country) => country.name.common.includes(selectCountry))
 
-  const searchData = selectCountry === '' ? countries : countryToShow
-
   return (
     <>
     <SearchEngine handle={handleFilter} value={selectCountry}/>
-    <Country list={countryToShow}/>
+    <CountryList list={countryToShow}/>
+    {countryToShow.length === 1 ? <CountryDetail countryselected={countryToShow} /> : null}
     </>
   )  
  
