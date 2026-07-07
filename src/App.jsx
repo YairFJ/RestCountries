@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import SearchEngine from './components/SearchEngine'
 import CountryList from './components/CountryList'
 import countryService from './services/contries'
-import contries from './services/contries'
 import CountryDetail from './components/CountryDetail'
+import weatherService from './services/weather'
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -13,7 +13,13 @@ function App() {
     countryService.getAll().then((country) => {
       setCountries(country)
     })
-  }, [])
+
+    weatherService.getWeather().then((weather) => {
+      weather
+    })
+  }, [selectCountry])
+
+
 
   const handleFilter = (event) => {
     setSelectCountry(event.target.value)
