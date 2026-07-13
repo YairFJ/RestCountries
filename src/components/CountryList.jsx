@@ -8,7 +8,7 @@ const CountryList = ({list}) => {
         <ul>
             {list.map((country) => (
                 <li key={country.name.common}>
-                <p>{country.name.common} {/* | {country.capital} */}</p>
+                <h3>{country.name.common}</h3>
                 </li>
             ))}
         </ul>
