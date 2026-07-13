@@ -1,4 +1,6 @@
-const CountryDetail = ({countryselected})=>{
+
+
+const CountryDetail = ({countryselected, weather})=>{
     if(countryselected.length === 0){
         return null;
     }
@@ -18,6 +20,13 @@ const CountryDetail = ({countryselected})=>{
                     alt={country.flags.alt}
                     width="200"    
                 />
+                <h2>Weather in {country.capital}</h2>
+
+                <h3>Weather: {weather?.main?.temp}</h3>
+                
+            
+                
+            
             </li>
       
         </ul>
